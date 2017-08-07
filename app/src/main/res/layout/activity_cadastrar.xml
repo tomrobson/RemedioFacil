@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.iesb.remediofacil.Login_Activity">
+    tools:context="br.iesb.remediofacil.Cadastrar_Activity">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -19,27 +19,39 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/editText3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Nome Completo" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textEmailAddress"
                 tools:text="Email" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/editText5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="Senha"
                 android:inputType="textPassword" />
 
+            <EditText
+                android:id="@+id/editText6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Repetir a Senha"
+                android:inputType="textPassword" />
+
             <Button
-                android:id="@+id/button"
+                android:id="@+id/button6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -47,20 +59,11 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:background="#3c4858"
-                android:text="Entrar"
+                android:text="Cadastrar"
                 android:textColor="#fff" />
 
             <TextView
-                android:id="@+id/textView10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:text="Esqueceu a Senha?"
-                android:textAlignment="center"
-                android:textColor="#000" />
-
-            <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/textView12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
@@ -69,7 +72,7 @@
                 android:textColor="#000" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/button9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -81,7 +84,7 @@
                 android:textColor="#fff" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/button10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -89,11 +92,9 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:background="#3c4858"
-                android:text="Entrar com google"
+                android:text="Entrar com Google"
                 android:textColor="#fff" />
-
         </LinearLayout>
-
     </FrameLayout>
 
 </LinearLayout>
