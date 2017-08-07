@@ -23,13 +23,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="Nome do Remedio"
+                android:hint="Nome do Remedio"
                 android:textAllCaps="false"
                 android:textColor="#3c4858"
                 android:textIsSelectable="false" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/buttonPesquisar"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
