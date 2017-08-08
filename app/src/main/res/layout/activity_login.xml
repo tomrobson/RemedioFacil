@@ -1,115 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="br.iesb.remediofacil.Login_Activity">
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
 
-    <ScrollView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical">
 
-        <FrameLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp">
+            android:text="Preencha os campos para entrar"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            android:layout_marginBottom="20dp"
+            android:textSize="13sp"
+            />
 
-            <LinearLayout
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+        </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/editText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:ems="10"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress" />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/editText2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:ems="10"
-                    android:hint="Senha"
-                    android:inputType="textPassword" />
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="Senha"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
 
-                <Button
-                    android:id="@+id/buttonLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:background="#3c4858"
-                    android:text="Entrar"
-                    android:textColor="#fff" />
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:text="Entrar"
+            android:textColor="#fff" />
 
-                <TextView
-                    android:id="@+id/textView10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:text="Esqueceu a Senha?"
-                    android:textAlignment="center"
-                    android:textColor="#000" />
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Esqueceu a Senha?"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary" />
 
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="30dp"
-                    android:text="__________          ou          __________"
-                    android:textAlignment="center"
-                    android:textColor="#000" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp">
 
-                <Button
-                    android:id="@+id/buttonRegistrar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:background="#3c4858"
-                    android:text="Registrar"
-                    android:textColor="#fff" />
+            <TextView
+                android:id="@+id/tvText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="OU"
+                android:textColor="@color/colorPrimary" />
 
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:background="#3c4858"
-                    android:text="Entrar com Facebook "
-                    android:textColor="#fff" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:layout_toLeftOf="@id/tvText"
+                android:background="@color/colorPrimary" />
 
-                <Button
-                    android:id="@+id/button4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:background="#3c4858"
-                    android:text="Entrar com google"
-                    android:textColor="#fff" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16dp"
+                android:layout_toRightOf="@id/tvText"
+                android:background="@color/colorPrimary" />
 
-            </LinearLayout>
+        </RelativeLayout>
 
-        </FrameLayout>
-    </ScrollView>
+        <!--<Button-->
+        <!--android:id="@+id/buttonRegistrar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:background="#3c4858"-->
+        <!--android:text="Registrar"-->
+        <!--android:textColor="#fff" />-->
 
-</LinearLayout>
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:text="Entrar com Facebook "
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:text="Entrar com google"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+
+</ScrollView>
+
