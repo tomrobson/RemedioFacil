@@ -13,11 +13,12 @@ public class Cadastrar_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar);
 
-        Button b = (Button)  findViewById(R.id.buttonCadastrar);
+        Button b = (Button) findViewById(R.id.buttonCadastrar);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Cadastrar_Activity.this, Login_Activity.class));
+                finish();
             }
         });
     }
