@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@color/white"
+    android:background="@drawable/gradient"
     android:orientation="vertical"
     android:padding="40dp"
     tools:context="br.iesb.remediofacil.WelcomeActivity">
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Remédio Fácil"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -31,7 +31,7 @@
             android:gravity="center"
             android:text="consectetur adipiscing elit. Phasellus lorem dolor, ornare eget pulvinar quis, condimentum at massa. Morbi orci risus, tempus rhoncus tristique vitae, sodales sed odio. Integer eu blandit nisi,"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <LinearLayout
@@ -46,15 +46,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@drawable/border_button_background"
             android:text="Logar"
-            android:textColor="@color/white" />
+            android:textColor="@color/colorPrimary" />
 
         <Button
             android:id="@+id/welcome_signin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:layout_centerInParent="true"
+            android:background="@drawable/border_button"
             android:text="Criar a sua conta"
             android:textColor="@color/white" />
 
