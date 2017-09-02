@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.iesb.remediofacil.Info_Activity"
+    tools:context="br.iesb.remediofacil.InfoActivity"
     android:weightSum="1">
 
     <FrameLayout
