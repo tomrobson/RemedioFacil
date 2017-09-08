@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Email inválido!", Toast.LENGTH_SHORT).show();
                     login_email.requestFocus();
                 } else if(!validateSenha(login_senha.getText().toString())) {
-                    Toast.makeText(LoginActivity.this, "Senha minimo de 6 e máximo de 12!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Senha mínimo de 6 e máximo de 12!", Toast.LENGTH_SHORT).show();
                     login_senha.requestFocus();
                 } else{
                     mAuth.signInWithEmailAndPassword(login_email.getText().toString(), login_senha.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
