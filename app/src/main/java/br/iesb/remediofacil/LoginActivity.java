@@ -2,6 +2,7 @@ package br.iesb.remediofacil;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.media.MediaCodec;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +28,9 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "Teste LOGIN";
@@ -73,24 +77,31 @@ public class LoginActivity extends AppCompatActivity {
         botaoLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!validateEmail(login_email.getText().toString())) {
+                    Toast.makeText(LoginActivity.this, "Email inválido!", Toast.LENGTH_SHORT).show();
+                    login_email.requestFocus();
+                } else if(!validateSenha(login_senha.getText().toString())) {
+                    Toast.makeText(LoginActivity.this, "Senha minimo de 6 e máximo de 12!", Toast.LENGTH_SHORT).show();
+                    login_senha.requestFocus();
+                } else{
+                    mAuth.signInWithEmailAndPassword(login_email.getText().toString(), login_senha.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
 
-                final ProgressDialog progressDialog = ProgressDialog.show(LoginActivity.this, "Aguarde", "Processando...", true);
+                            ProgressDialog progressDialog = ProgressDialog.show(LoginActivity.this, "Aguarde", "Processando...", true);
 
-                mAuth.signInWithEmailAndPassword(login_email.getText().toString(), login_senha.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
-
-                        if (!task.isSuccessful()) {
-                            Log.w(TAG, "signInWithEmail:failed", task.getException());
-                            Toast.makeText(LoginActivity.this, "Email ou senha icorretos!", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(LoginActivity.this, "Logado com sucesso!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            if (!task.isSuccessful()) {
+                                Log.w(TAG, "signInWithEmail:failed", task.getException());
+                                progressDialog.dismiss();
+                                Toast.makeText(LoginActivity.this, "Email ou senha icorretos!", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(LoginActivity.this, "Logado com sucesso!", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            }
                         }
-
-                    }
-                });
+                    });
+                }
             }
         });
 
@@ -118,6 +129,27 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private boolean validateEmail(String email) {
+        final String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+        if (email.isEmpty()){
+            return false;
+        }
+
+        Pattern pattern = Pattern.compile(emailPattern);
+        Matcher matcher = pattern.matcher(email);
+
+        return matcher.matches();
+    }
+
+    private boolean validateSenha(String senha) {
+        if (senha!=null && senha.length()>5 && senha.length()<13){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
