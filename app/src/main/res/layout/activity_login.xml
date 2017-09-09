@@ -131,15 +131,23 @@
             android:text="Entrar com Facebook "
             android:textColor="#fff" />
 
-        <Button
-            android:id="@+id/login_button_google"
-            android:layout_width="match_parent"
+        <!--<Button-->
+        <!--android:id="@+id/login_button_google"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:background="@color/colorPrimary"-->
+        <!--android:text="Entrar com google"-->
+        <!--android:textColor="#fff" />-->
+
+        <com.facebook.login.widget.LoginButton
+            android:text="Entrar com facebook"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorPrimary"
-            android:text="Entrar com google"
-            android:textColor="#fff" />
+            android:layout_width="match_parent">
+
+
+        </com.facebook.login.widget.LoginButton>
 
     </LinearLayout>
 

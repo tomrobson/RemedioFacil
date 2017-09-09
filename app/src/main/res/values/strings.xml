@@ -5,4 +5,5 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="auth_failed">Email ou senha incorretos</string>
+    <string name="facebook_app_id">1960428047579944</string>
 </resources>
