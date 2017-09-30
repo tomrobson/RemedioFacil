@@ -93,6 +93,7 @@
                 android:text="@string/login_facebook" />
 
             <Button
+                android:id="@+id/login_btn_google"
                 style="@style/ButtonPositive"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
