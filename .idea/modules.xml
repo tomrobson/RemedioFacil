@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RemedioFacil.iml" filepath="$PROJECT_DIR$/RemedioFacil.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MedAnvisa.iml" filepath="$PROJECT_DIR$/MedAnvisa.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -1,64 +1,77 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:background="@drawable/gradient"
-    android:orientation="vertical"
-    android:padding="40dp"
-    tools:context="br.iesb.remediofacil.WelcomeActivity">
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Remédio Fácil"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+    android:background="@color/colorPrimary"
+    android:fillViewport="true"
+    tools:context="br.iesb.medanvisa.WelcomeActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="bottom"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="consectetur adipiscing elit. Phasellus lorem dolor, ornare eget pulvinar quis, condimentum at massa. Morbi orci risus, tempus rhoncus tristique vitae, sodales sed odio. Integer eu blandit nisi,"
-            android:textAlignment="center"
-            android:textColor="@color/white" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="bottom"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/welcome_login"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/border_button_background"
-            android:text="Logar"
-            android:textColor="@color/colorPrimary" />
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/welcome_signin"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:text="@string/app_name"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Veja o preço máximo permitido pela anvisa e fique longe de preços abusivos"
+                android:textAlignment="center"
+                android:textColor="#fff" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/border_button"
-            android:text="Criar a sua conta"
-            android:textColor="@color/white" />
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:orientation="vertical">
 
+            <Button
+                android:id="@+id/welcome_login"
+                style="@style/ButtonNegative"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/login" />
 
+            <Button
+                android:id="@+id/welcome_signup"
+                style="@style/ButtonNegative"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/signup" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
