@@ -14,6 +14,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class SignupActivity extends AppCompatActivity {
 
     private EditText editName;
@@ -46,19 +49,60 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void criarUsuario(String email, String password) {
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task task) {
-                        if (task.isSuccessful()) {
-                            alert("Usuário cadastrado com sucesso!");
-                            startActivity(new Intent(SignupActivity.this, SearchMedicineActivity.class));
-                            finish();
-                        } else {
-                            alert("Erro no cadastro!");
+        if (!validateNome(editName.getText().toString())) {
+            alert("Nome mínimo de 3 e máximo de 40 letras!");
+            editName.requestFocus();
+        } else if (!validateEmail(editEmail.getText().toString())) {
+            alert("Email inválido!");
+            editEmail.requestFocus();
+        } else if (!validateSenha(editPassword.getText().toString())) {
+            alert("Senha mínimo de 6 e máximo de 12!");
+            editName.requestFocus();
+        } else {
+            firebaseAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task task) {
+                            if (task.isSuccessful()) {
+                                alert("Usuário cadastrado com sucesso!");
+                                startActivity(new Intent(SignupActivity.this, SearchMedicineActivity.class));
+                                finish();
+                            } else {
+                                alert("Erro no cadastro!");
+                            }
                         }
-                    }
-                });
+                    });
+        }
+
+    }
+
+    private boolean validateNome(String nome) {
+        if (nome != null && nome.length() > 2 && nome.length() < 41) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean validateEmail(String email) {
+        final String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+        if (email.isEmpty()) {
+            return false;
+        }
+
+        Pattern pattern = Pattern.compile(emailPattern);
+        Matcher matcher = pattern.matcher(email);
+
+        return matcher.matches();
+    }
+
+    private boolean validateSenha(String senha) {
+        if (senha != null && senha.length() > 5 && senha.length() < 13) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 

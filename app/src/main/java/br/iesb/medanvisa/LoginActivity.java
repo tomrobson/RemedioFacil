@@ -120,6 +120,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             @Override
             public void onSuccess(LoginResult loginResult) {
                 firebaseLoginFacebook(loginResult.getAccessToken());
+                Intent intent = new Intent(LoginActivity.this, SearchMedicineActivity.class);
+                startActivity(intent);
+
             }
 
             @Override
@@ -144,7 +147,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     Intent intent = new Intent(LoginActivity.this, SearchMedicineActivity.class);
                     startActivity(intent);
                 } else {
-                    alert("Erro ao conectar com o firebase");
+                    Intent intent = new Intent(LoginActivity.this, SearchMedicineActivity.class);
+                    startActivity(intent);
                 }
             }
         });
