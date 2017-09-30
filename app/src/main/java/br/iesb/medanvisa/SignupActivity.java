@@ -57,7 +57,7 @@ public class SignupActivity extends AppCompatActivity {
             editEmail.requestFocus();
         } else if (!validateSenha(editPassword.getText().toString())) {
             alert("Senha mínimo de 6 e máximo de 12!");
-            editName.requestFocus();
+            editPassword.requestFocus();
         } else {
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {

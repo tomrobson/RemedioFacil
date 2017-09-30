@@ -31,6 +31,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthProvider;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     private Button btnLogin;
@@ -175,16 +178,24 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     }
 
     private void login(String email, String password) {
-        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    startActivity(new Intent(LoginActivity.this, SearchMedicineActivity.class));
-                } else {
-                    Toast.makeText(LoginActivity.this, "Email ou senha errados", Toast.LENGTH_LONG).show();
+        if (!validateEmail(editEmail.getText().toString())) {
+            alert("Email inválido!");
+            editEmail.requestFocus();
+        } else if (!validateSenha(editPassword.getText().toString())) {
+            alert("Senha mínimo de 6 e máximo de 12!");
+            editPassword.requestFocus();
+        } else {
+            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        startActivity(new Intent(LoginActivity.this, SearchMedicineActivity.class));
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Email ou senha errados", Toast.LENGTH_LONG).show();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     private void inicializaComponentes() {
@@ -200,4 +211,26 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private void alert(String s) {
         Toast.makeText(LoginActivity.this, s, Toast.LENGTH_LONG).show();
     }
+
+    private boolean validateEmail(String email) {
+        final String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+        if (email.isEmpty()) {
+            return false;
+        }
+
+        Pattern pattern = Pattern.compile(emailPattern);
+        Matcher matcher = pattern.matcher(email);
+
+        return matcher.matches();
+    }
+
+    private boolean validateSenha(String senha) {
+        if (senha != null && senha.length() > 5 && senha.length() < 13) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
