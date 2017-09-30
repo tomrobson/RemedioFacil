@@ -12,14 +12,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SearchMedicineActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private TextView profileEmail;
+    private FirebaseAuth auth;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_medicine);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -40,6 +50,9 @@ public class SearchMedicineActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        inicializaComponentes();
+
+
     }
 
     @Override
@@ -86,8 +99,9 @@ public class SearchMedicineActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_share) {
-
+        } else if (id == R.id.nav_logout) {
+            Conexao.deslogar();
+            finish();
         } else if (id == R.id.nav_send) {
 
         }
@@ -95,5 +109,28 @@ public class SearchMedicineActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        auth = Conexao.getFirebaseAuth();
+        user = Conexao.getFirebaseUser();
+        verificaUser();
+    }
+
+
+    private void verificaUser() {
+        if (user == null) {
+            finish();
+        } else {
+            Toast.makeText(SearchMedicineActivity.this, "Tentando preencher", Toast.LENGTH_LONG).show();
+            // TODO - Apresentar Email do usuário na gaveta SearchMedicineActivity - Null Pointer Exception fuck
+            //            profileEmail.setText(user.getEmail());
+        }
+    }
+
+    private void inicializaComponentes() {
+        profileEmail = (TextView) findViewById(R.id.nav_header_search_medicine_profile_email);
     }
 }

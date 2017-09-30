@@ -17,29 +17,32 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
-    private static final String TAG = "Login Activiy";
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
 
     private Button btnLogin;
-    private EditText txtEmail;
-    private EditText txtPassword;
+    private EditText editEmail;
+    private EditText editassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        inicializaComponentes();
 
-        txtEmail = (EditText) findViewById(R.id.login_email);
-        txtPassword = (EditText) findViewById(R.id.login_password);
+    }
 
-        btnLogin = (Button) findViewById(R.id.login_btn_email_pass);
+    private void eventoClicks() {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this, SearchMedicineActivity.class));
             }
         });
+    }
+
+    private void inicializaComponentes() {
+        editEmail = (EditText) findViewById(R.id.login_email);
+        editassword = (EditText) findViewById(R.id.login_password);
+        btnLogin = (Button) findViewById(R.id.login_btn_email_pass);
     }
 
 }
