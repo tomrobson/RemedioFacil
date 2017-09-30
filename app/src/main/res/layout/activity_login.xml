@@ -86,11 +86,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/login" />
 
-            <Button
-                style="@style/ButtonPositive"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/login_facebook" />
 
             <Button
                 android:id="@+id/login_btn_google"
@@ -98,6 +93,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/login_google" />
+
+            <!--<Button-->
+            <!--android:id="@+id/login_btn_facebook"-->
+            <!--style="@style/ButtonPositive"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/login_facebook" />-->
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_btn_facebook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
