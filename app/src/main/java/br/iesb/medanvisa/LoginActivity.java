@@ -45,7 +45,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     // facebook
     private CallbackManager mCallbackManager;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +54,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         conectaGoogleApi();
         eventoClicks();
     }
-
 
     @Override
     protected void onStart() {
