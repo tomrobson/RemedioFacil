@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "521095585063",
+    "firebase_url": "https://medanvisa-8a578.firebaseio.com",
+    "project_id": "medanvisa-8a578",
+    "storage_bucket": "medanvisa-8a578.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521095585063:android:0ef3569dab27cc8a",
+        "android_client_info": {
+          "package_name": "br.iesb.medanvisa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521095585063-ng60hcku1mgo99pv5a8kuo9v02o5g4bv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.iesb.medanvisa",
+            "certificate_hash": "69b1ec8e4dfab5c444107ba57c1767d352243210"
+          }
+        },
+        {
+          "client_id": "521095585063-j80h13h036navf4krk4rjh8hvq09gcij.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPFtVdjTStuym5Nfetpamt6kW6EwSBnwc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521095585063-j80h13h036navf4krk4rjh8hvq09gcij.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
