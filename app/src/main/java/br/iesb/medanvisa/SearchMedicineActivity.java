@@ -152,4 +152,32 @@ public class SearchMedicineActivity extends AppCompatActivity
         profileName = (TextView) findViewById(R.id.nav_header_search_medicine_profile_name);
         profilePicture = (ImageView) findViewById(R.id.nav_header_search_medicine_profile_picture);
     }
+
+//    private void buscarDados() {
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("http://mobile-aceite.tcu.gov.br/mapa-da-saude/")
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//
+//        TCURemedios service = retrofit.create(TCURemedios.class);
+//
+//        Call<List<Remedio>> remedios = service.listarRemedios();
+//
+//        remedios.enqueue(new Callback<List<Remedio>>() {
+//            @Override
+//            public void onResponse(Call<List<Remedio>> call,
+//                                   Response<List<Remedio>> response) {
+//                List<Remedio> lista = response.body();
+//
+//                for (Remedio r : lista) {
+//                    Log.d("RETROFIT", r.getProduto() + " " + r.getApresentacao());
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<Remedio>> call,
+//                                  Throwable t) {
+//            }
+//        });
+//    }
 }
